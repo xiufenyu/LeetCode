@@ -25,10 +25,29 @@ using namespace std;
 
 class Solution {
 public:
-    int strStr(string haystack, string needle) {
+    int strStr_1(string haystack, string needle) {
         int index = haystack.find(needle);
         // std::cout << index << endl;
         return index == string::npos ? -1 : index;
+    }
+
+     int strStr(string haystack, string needle) {
+        for (int i=0; i< haystack.size(); i++) {
+            bool match = true;
+            for (int j=0; j < needle.size(); j++) {
+                if (haystack[i+j] != needle[j]) {
+                    match = false;
+                    break;
+                }
+            }
+
+            if (match){
+                // std::cout << i << endl;
+                return i;
+            }
+        }
+        // std::cout << -1 << endl;
+        return -1;
     }
 };
 
