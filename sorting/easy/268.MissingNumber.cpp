@@ -48,7 +48,7 @@ public:
             actualSum = actualSum + v;
         }
   
-        return expectedSum-actualSum
+        return expectedSum-actualSum;
     }
 };
 
