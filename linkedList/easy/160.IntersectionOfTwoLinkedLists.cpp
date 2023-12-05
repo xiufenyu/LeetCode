@@ -118,17 +118,24 @@ public:
             headB = headB->next;
         }
 
+        ListNode* result = nullptr;
         while (not stackA.empty() and not stackB.empty())
         {
-            if (stackA.top() == stackB.top())
-            {
-                return stackA.top();
-            }
+            auto ptrA = stackA.top();
+            auto ptrB = stackB.top();
+
             stackA.pop();
             stackB.pop();
+            if (ptrA == ptrB)
+            {
+                result = ptrA;
+            }
+            else
+            {
+                return result;
+            }
         }
 
-        return nullptr;
+        return result;
     }
-
 };
